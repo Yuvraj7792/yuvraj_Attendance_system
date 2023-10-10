@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Attandance Management Systeme</title>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> 
+    <link rel="stylesheet" href="style.css">  
+</head>
+
+<script src="jquery.js"></script>    
+<script >
+    $(document).ready(function(){
+        $("#noti").click(function(){
+            $(".actNot").fadeIn(2500);
+        });
+    });
+</script>
+
+<body>  
+    
+    <div class="container">
+        <!-- Navigation Bar Section -->
+        <nav class="navbar navbar-expand-sm bg-light navbar-light fixed-top">
+            <!-- Brand / Logo -->
+            <a href="#" class="navbar-brand">
+                <img src="logo.jpg" alt="logo" style="width: 40px;">
+            </a>
+
+            <ul class="navbar-nav">
+                <!-- links -->
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modalLoginForm">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link" data-toggle="modal" data-target="#modalRegForm">Registration</a>
+                </li>
+            </ul>
+        </nav>   
+    </div>    
+
+<!-- Login Modal Section -->
+
+    <div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Login</h4>
+                    <button id="b1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+              
+                <div class="modal-body mx-3">
+
+                    <div class="md-form mb-5">
+                        Enter Name:
+                        <input type="text" id="defaultForm-email" class="form-control validate">
+                    </div>
+                  
+                    <div class="md-form mb-5">
+                        Enter Email:
+                        <input type="email" id="defaultForm-email" class="form-control validate">
+                    </div>
+                  
+                    <div class="md-form mb-4">
+                        Enter Password: 
+                        <input type="password" id="defaultForm-pass" class="form-control validate">
+                    </div>
+                     
+                </div>
+              
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-default">Login</button>
+                </div>
+              
+            </div>
+        </div>
+    </div>    
+
+<!-- Registration Modal Section -->
+
+    <div class="modal fade" id="modalRegForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Registration</h4>
+                    <button id="b1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+              
+                <div class="modal-body mx-3">
+
+                    <div class="md-form mb-5">
+                        Enter Name:
+                        <input type="text" id="defaultForm-email" class="form-control validate">
+                    </div>
+                  
+                    <div class="md-form mb-5">
+                        Enter Email:
+                        <input type="email" id="defaultForm-email" class="form-control validate">
+                    </div>
+
+                    <div class="md-form mb-5">
+                        Enter Mobile No:
+                        <input type="text" maxlength="10" id="defaultForm-email" class="form-control validate">
+                    </div>
+
+
+                    <div class="md-form mb-5">
+                        Enter Address: <br> 
+                        <textarea name="" id="" cols="50" rows="2"></textarea>
+                    </div>
+ 
+                    <div class="md-form mb-4">
+                        Enter Password:  
+                        <input type="password" id="defaultForm-pass" class="form-control validate">
+                    </div>
+
+                    <div class="md-form mb-4">
+                        Confirm Password:  
+                        <input type="password" id="defaultForm-pass" class="form-control validate">
+                    </div>
+                     
+                </div>
+              
+                <div class="modal-footer d-flex justify-content-center">
+                    <button class="btn btn-default">Register</button>
+                </div>              
+            </div>
+        </div>        
+    </div>
+       
+
+<!-- Tabs Section -->
+
+
+    <ul  class="nav nav-tabs justify-content-center" id="ta">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#mka">Mark/Attandence</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#dis">Display</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#img">Images</a>
+        </li>
+        <li class="nav-item" >
+            <a class="nav-link" data-toggle="tab" id="noti" href="#notice">Notice</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+
+         <!-- Attandance Section -->
+
+        <div class="tab-pane show active" id="mka">
+            <div class="ok">
+                <form>
+                    Roll No:
+                    <div>
+                        <input type="number" min="01" start placeholder="Enter Roll Number">
+                    </div>
+                    Name:
+                    <div>
+                        <input type="text" placeholder="Enter Name">
+                    </div>
+                    Date:
+                    <div>
+                        <input type="date" style="width: 213px;"> 
+                    </div>
+                    <div id="sub">
+                        <input  type="checkbox">Present 
+                    </div>
+                    <button  type="submit" class="btn btn-warning" style="width: 100%; margin-top: 5px;">Submit</button> 
+                </form>           
+            </div> 
+        </div>
+
+        <!-- Display Section -->
+
+        <div class="tab-pane" id="dis" >
+            <div class="dis2">
+                <table class="table" style="width: 500px;">
+                    <thead>
+                        <tr>
+                            <th>Roll No</th>
+                            <th>Name</th>
+                            <th>Date</th>
+                            <th>Attandence</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>                    
+                            <td>01</td>
+                            <td>Yuvraj</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>02</td>
+                            <td>Amar</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>03</td>
+                            <td>Prashant</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>04</td>
+                            <td>Om</td>
+                            <td>02-10-2023</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>                    
+                            <td>05</td>
+                            <td>Harshawardhan</td>
+                            <td>02-10-2023</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>                    
+                            <td>06</td>
+                            <td>Prashant</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>07</td>
+                            <td>Dnyaneshwar</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>08</td>
+                            <td>Sanket</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>09</td>
+                            <td>Sourabh</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                        <tr>                    
+                            <td>10</td>
+                            <td>Narayan</td>
+                            <td>02-10-2023</td>
+                            <td>P</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>    
+        </div>
+
+        <!-- Images Section -->
+
+        <div class="tab-pane" id="img" style="padding: 10px 20px;">
+            <div class="row">
+                <div class="col-md-5" style="height: 300px; padding: 3px;">
+                   <img src="a1.jpg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-7" style="height: 300px; padding: 3px;">
+                    <img src="a2.jpg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="height: 300px; padding: 3px;">
+                    <img src="c1.avif" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-6" style="height: 300px; padding: 3px;">
+                    <img src="c2.jpeg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="b1.jpg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="b2.jpg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="b3.jpg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-5" style="height: 300px; padding: 3px;">
+                   <img src="d1.jpeg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-7" style="height: 300px; padding: 3px;">
+                    <img src="d2.jpeg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="height: 300px; padding: 3px;">
+                    <img src="f1.jpg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-6" style="height: 300px; padding: 3px;">
+                    <img src="f2.jpeg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="e1.jpeg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="e2.jpeg" height="100%" width="100%" alt="">
+                </div>
+                <div class="col-md-4" style="height: 300px; padding: 3px;">
+                    <img src="e3.jpeg" height="100%" width="100%" alt="">
+                </div>
+            </div>
+        </div>
+
+        <!-- Notice Section -->
+
+        <div class="tab-pane " id="notice">
+            <div class="ok2">
+                <div class="no col-md-7">
+                    <h2>Notice</h2>
+                    <div class="actNot" style="font-size: 20px; padding: 15px; display: none;">
+                        <p><b>1)Announcements: </b>The college announces a revised class schedule for the upcoming semester.</p>
+                        <p><b>2)Admission:</b> Admission notices for the MBA program are now available on the college website.</p>
+                        <p><b>3)Exam:</b> Please review the exam notices for important information about the chemistry midterm exam.</p>
+                        <p><b>4)Job Oportunities:</b> Explore exciting job and internship opportunities in the job notices section.</p>
+                        <p><b>5)Student:</b> udent council election results are out! Find the details in the student notices section.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
